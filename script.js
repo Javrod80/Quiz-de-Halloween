@@ -42,3 +42,4 @@ function makeVisual() {
   document.body.appendChild(divGeneralContainer);
 }
 makeVisual();
+

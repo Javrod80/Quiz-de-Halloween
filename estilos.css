@@ -1,7 +1,9 @@
-.oculto {
-    display: none;
-}
+body {
+    background-color: rgb(53, 155, 196);
+    
+    font-weight: normal;
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
 
-.mostrar {
-    display: block;
 }
