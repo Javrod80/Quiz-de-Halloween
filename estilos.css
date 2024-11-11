@@ -1,9 +1,99 @@
 body {
-    background-color: rgb(53, 155, 196);
-    
-    font-weight: normal;
-    line-height: 1.6em;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    background-color: #bacdd9;
+}
 
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: crimson;
+   
+
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(6, 108, 37);
+
+
+}
+
+/* Estilo para el contenedor de las tarjetas */
+#answers {
+    background-color: rgb(18, 161, 238);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: auto;
+    min-width: 300px;
+    max-width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center
+}
+
+/* Estilo para las preguntas */
+#answers p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Estilos para las tarjetas de respuestas */
+.answer-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    width: 80%;
+    /* Ajusta el tamaño de las tarjetas */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+}
+.answer-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* Color verde para respuestas correctas */
+.answer-card.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+/* Color rojo para respuestas incorrectas */
+.answer-card.incorrect {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Estilos para el botón */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+
+}
+
+button:hover {
+    background-color: #0056b3;
 }
