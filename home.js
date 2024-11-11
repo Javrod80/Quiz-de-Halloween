@@ -38,17 +38,18 @@ function homeVisual() {
     document.body.appendChild(divGeneralContainer);
 
    
-    makeCanvas();
+    makeCanvas(divCanvasContainer);
 
 }
 homeVisual();
 
 
-function makeCanvas() {
+function makeCanvas(divCanvasContainer) {
 
     let graphic = document.createElement("canvas");
     graphic.id = "canvas-results";
    
+    divCanvasContainer.appendChild(graphic);
 
     let scoreHistory = JSON.parse(localStorage.getItem("gameHistory")) || [];
     let labels = scoreHistory.map((item) => item.date);

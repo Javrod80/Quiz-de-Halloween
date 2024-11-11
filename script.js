@@ -46,10 +46,7 @@ function showQuestion() {
 
   let divAnswers = document.getElementById("answers");
 
-  if (response.length === 0) {
-    divAnswers.innerHTML = "Cargando preguntas, por favor espera...";
-    return;
-  }
+ 
 
   // Verificar si se han mostrado todas las preguntas
   if (currentQuestionIndex < response.length) {
@@ -145,4 +142,5 @@ function saveGameResult(correctCount, incorrectCount) {
 
   gameHistory.push(gameResult);
   localStorage.setItem("gameHistory", JSON.stringify(gameHistory));
+  location.href = 'result.html';
 }
