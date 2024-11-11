@@ -1,6 +1,6 @@
 function startQuiz() {
 
-    location.href = 'question.html';
+    location.href = '../Html/question.html';
 }
 
 function homeVisual() {
@@ -61,29 +61,49 @@ function makeCanvas(divCanvasContainer) {
    
     let designCanvas = graphic.getContext("2d");
     new Chart(designCanvas, {
-        type: "line",
+        type: "bar",
         data: {
             labels: labels,
             datasets: [{
                 label: "Correctas",
                 data: correctData,
                 borderColor: "rgba(75, 192, 192, 1)",
-                backgroundColor: "rgba(75, 192, 192, 0.2)"
+                backgroundColor: "rgba(75, 192, 192, 0.5)",
+                borderWidth: 1,
             }, {
                 label: "Incorrectas",
                 data: incorrectData,
                 borderColor: "rgba(255, 99, 132, 1)",
-                backgroundColor: "rgba(255, 99, 132, 0.2)"
-            }]
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                   borderWidth: 1
+                }]
+        
+            
         },
         options: {
             responsive: true,
             scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Date'  
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Número de Respuestas'  
+                    }
                 }
-            }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
         }
+    }        
     });
 }
 

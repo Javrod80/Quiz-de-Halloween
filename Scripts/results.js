@@ -1,5 +1,5 @@
 
-function makeResults(){
+function makeResults() {
 
     let title = document.createElement("h1");
     let text = document.createTextNode("Estos son los resultados.");
@@ -7,47 +7,47 @@ function makeResults(){
 
     let divGeneralContainer = document.createElement("div");
     let divResults = document.createElement("div");
-    divResults.classList.add("divResults"); 
+    divResults.classList.add("divResults");
 
     divGeneralContainer.appendChild(title);
     divGeneralContainer.appendChild(divResults);
-    
-    
+
+
 
     document.body.appendChild(divGeneralContainer);
 
-   
+
     displayResults(divResults);
     backQuiz(divGeneralContainer);
-    
+
 }
- 
-    makeResults();
+
+makeResults();
 
 
- 
- 
 
-function displayResults(divResults){
 
-let score = JSON.parse(localStorage.getItem("gameHistory"));
 
-let correct = score[score.length -1].correct;
-let incorrect = score[score.length -1].incorrect;
-let scoreText = `Correct Aswers: ${correct} , Incorrect Aswers :${incorrect}`;
+function displayResults(divResults) {
 
-let display = document.createElement("p");
-divResults.appendChild(display);
-display.textContent = scoreText;
+    let score = JSON.parse(localStorage.getItem("gameHistory"));
+
+    let correct = score[score.length - 1].correct;
+    let incorrect = score[score.length - 1].incorrect;
+    let scoreText = `Correct Aswers: <span class="correct">${correct}</span>   ,  Incorrect Aswers :<span class="incorrect">${incorrect}</span>`;
+
+    let display = document.createElement("p");
+    divResults.appendChild(display);
+    display.innerHTML = scoreText;
 
 }
 
 function backQuiz(divGeneralContainer) {
     let backButton = document.createElement("button");
     backButton.textContent = "Back Button";
-    backButton.onclick = function() {
-    location.href = 'home.html';
-    
+    backButton.onclick = function () {
+        location.href = '../Html/home.html';
+
     }
     divGeneralContainer.appendChild(backButton);
 }

@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-      height: 80vh;
+    height: 80vh;
     margin: 0;
     background-color: #bacdd9;
     flex-direction: column;
@@ -13,12 +13,13 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: crimson;
-   
+
 }
+
 button {
     margin-top: 40px;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #FFA726;
     color: white;
     border: none;
     border-radius: 5px;
@@ -30,24 +31,37 @@ button {
 
 }
 
-.divResults{
-    background-color: rgb(18, 161, 238);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 400px;
-    max-width: 90%;
-
-
+button:hover {
+    background-color: #0056b3;
 }
+
+/* Estilo para el parrafo */
 p {
-    background-color: rgb(18, 161, 238);
+    background-color: #f0f4f8;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: auto;
-    min-width: 300px;
+    min-width: 400px;
     max-width: 90%;
     text-align: center;
-    
-  
-    
+    color: #000000;
+    font-size: 20px;
+
+
+}
+
+/* Estilo para las respuestas correctas e incorrectas */
+.correct {
+    color: green;
+    font-size: 40px;
+
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-size: 40px;
+
+    font-weight: bold;
 }
