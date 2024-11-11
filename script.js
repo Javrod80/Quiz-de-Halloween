@@ -28,7 +28,7 @@ function makeVisual() {
 
   // Botón para mostrar las preguntas
   let showQuestionButton = document.createElement("button");
-  showQuestionButton.textContent = "Iniciar Quiz";
+  showQuestionButton.textContent = "Reload Quiz";
   showQuestionButton.addEventListener("click", showQuestion);
 
   divQuestions.appendChild(showQuestionButton);
