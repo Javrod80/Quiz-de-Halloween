@@ -1,3 +1,4 @@
+/* Estilos para la página home.html*/
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -47,7 +48,7 @@ h2 {
 #start-quiz:hover {
     background-color: #45a049;
 }
-
+/* Contenedor del gráfico*/
 #canvas-container {
     display: flex;
     justify-content: center;

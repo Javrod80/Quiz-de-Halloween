@@ -1,4 +1,4 @@
-
+// Función para la visual de results
 function makeResults() {
 
     let title = document.createElement("h1");
@@ -27,11 +27,11 @@ makeResults();
 
 
 
-
+// Función para mostrar los resultados
 function displayResults(divResults) {
 
     let score = JSON.parse(localStorage.getItem("gameHistory"));
-
+    // Los ultimos resultados
     let correct = score[score.length - 1].correct;
     let incorrect = score[score.length - 1].incorrect;
     let scoreText = `Correct Aswers: <span class="correct">${correct}</span>   ,  Incorrect Aswers :<span class="incorrect">${incorrect}</span>`;
@@ -41,7 +41,7 @@ function displayResults(divResults) {
     display.innerHTML = scoreText;
 
 }
-
+// Función para el boton de volver al inicio
 function backQuiz(divGeneralContainer) {
     let backButton = document.createElement("button");
     backButton.textContent = "Back Button";

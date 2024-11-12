@@ -142,5 +142,5 @@ function saveGameResult(correctCount, incorrectCount) {
 
   gameHistory.push(gameResult);
   localStorage.setItem("gameHistory", JSON.stringify(gameHistory));
-  location.href = 'result.html';
+  location.href = '../Html/results.html';
 }

@@ -1,8 +1,9 @@
+// Función para el boton de iniciar el quiz
 function startQuiz() {
 
     location.href = '../Html/question.html';
 }
-
+// Función para la visual del home
 function homeVisual() {
 
     let title = document.createElement("h1");
@@ -43,7 +44,7 @@ function homeVisual() {
 }
 homeVisual();
 
-
+// Función para el grafico
 function makeCanvas(divCanvasContainer) {
 
     let graphic = document.createElement("canvas");
