@@ -66,3 +66,18 @@ h2 {
     width: 600px;
 
 }
+
+#myQuestions-quiz {
+    margin-left: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FFA726;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    
+    
+
+}
