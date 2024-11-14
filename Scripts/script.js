@@ -6,12 +6,18 @@ let response = [];
 let currentQuestionIndex = 0;
 let correctCount = 0;
 let incorrectCount = 0;
-let questionsaved = [];
+let myQuestionsIndex = 0;
 
+
+
+function aswerContainer() {
+
+}
 
 
 
 async function questions() {
+  currentQuestionIndex = 0;
   let res = await fetch("https://opentdb.com/api.php?amount=10&type=multiple");
   let data = await res.json();
   response = data.results;
@@ -21,7 +27,7 @@ async function questions() {
 
 function makeVisual() {
   let title = document.createElement("h1");
-  let text = document.createTextNode("Quiz Halloween: multiple Categories");
+  let text = document.createTextNode("Quiz Halloween: Choose Quiz ");
   title.appendChild(text);
 
 
@@ -29,11 +35,15 @@ function makeVisual() {
   let divQuestions = document.createElement("div");
   let divAnswers = document.createElement("div");
   divAnswers.id = "answers";
+  divAnswers.style.display = "none";
 
   // Botón para mostrar las preguntas
   let showQuestionButton = document.createElement("button");
-  showQuestionButton.textContent = "Reload Quiz";
-  showQuestionButton.addEventListener("click", showQuestion);
+  showQuestionButton.textContent = "Begin Api Quiz";
+  showQuestionButton.addEventListener("click", () => {
+    document.getElementById("answers").innerHTML = "";
+    questions();
+  });
 
   // Para mis propias preguntas
   let divMyQuestions = document.createElement("div");
@@ -41,8 +51,12 @@ function makeVisual() {
 
 
   let startMyQuestions = document.createElement("button");
-  startMyQuestions.textContent = "Start My Quiz";
-  startMyQuestions.addEventListener("click", goToQuiz)
+  startMyQuestions.textContent = " Mi Quiz";
+  startMyQuestions.addEventListener("click",() => {
+    document.getElementById("answers").innerHTML = "";
+    myQuestionsIndex = 0;
+    goToQuiz();
+  } );
   startMyQuestions.id = "myQuestions-quiz";
 
 
@@ -67,6 +81,7 @@ makeVisual();
 function showQuestion() {
 
   let divAnswers = document.getElementById("answers");
+  divAnswers.style.display = "block";
 
 
 
@@ -169,77 +184,73 @@ function saveGameResult(correctCount, incorrectCount) {
 
 
 
-
-
-
-
 // Utilizar mis propias preguntas para el quiz
 
 function myquestions() {
 
   let myquestions = [
     {
-      "question1": "¿Quién pintó Las meninas?",
+      "question": "¿Quién pintó Las meninas?",
       "correct_answer": "Diego Velázquez",
       "incorrect_answer": ["Francisco de Goya", "Salvador Dalí"]
     },
     {
-      "question2": "¿Cuál es la capital de Hungría?",
+      "question": "¿Cuál es la capital de Hungría?",
       "correct_answer": "Budapest",
       "incorrect_answer": ["Praga", "Viena", "Estambul"]
 
 
     },
     {
-      "question3": "Aproximadamente, ¿cuántos huesos tiene el cuerpo humano?",
+      "question": "Aproximadamente, ¿cuántos huesos tiene el cuerpo humano?",
       "correct_answer": "206 ",
       "incorrect_answer": ["40", "208"]
     },
     {
-      "question4": "¿El río más largo de España?",
+      "question": "¿El río más largo de España?",
       "correct_answer": "El río Tajo",
       "incorrect_answer": ["Río Guadiana", "Río Duero", "Río Guadalquivir"]
 
 
     },
     {
-      "question5": "¿Cuál es el océano más grande?",
+      "question": "¿Cuál es el océano más grande?",
       "correct_answer": "Océano Pacífico ",
       "incorrect_answer": ["Océano Atlántico", "Océano Índico", "Océano Antártico", "Océno Ártico"]
     },
     {
-      "question6": "¿De dónde son originarios juegos olímpicos?",
+      "question": "¿De dónde son originarios juegos olímpicos?",
       "correct_answer": "Grecia",
       "incorrect_answer": ["Roma", "Creta", "Londres"]
 
 
     },
     {
-      "question7": "¿Cuál fue la primera película de Walt Disney?",
+      "question": "¿Cuál fue la primera película de Walt Disney?",
       "correct_answer": "Blancanieves y los siete enanitos ",
       "incorrect_answer": ["Mickey Mouse", "La sirenita"]
     },
     {
-      "question8": ". ¿Cuántos satélites tenemos orbitando alrededor de la tierra?",
+      "question": ". ¿Cuántos satélites tenemos orbitando alrededor de la tierra?",
       "correct_answer": "4.256 satélites",
       "incorrect_answer": ["1419 satélites", "150 satélites", "8500 satélites"]
 
 
     },
     {
-      "question9": "¿Cuántas veces parpadea por semana una persona?",
+      "question": "¿Cuántas veces parpadea por semana una persona?",
       "correct_answer": "25.000 veces",
       "incorrect_answer": ["1.500 veces", "55.000 veces"]
     },
     {
-      "question10": " ¿Ciudad más poblada mundo?",
+      "question": " ¿Ciudad más poblada mundo?",
       "correct_answer": "Tokio",
       "incorrect_answer": ["Praga", "Buenos Aires", "Estambul"]
 
 
     }
 
-  ]
+  ];
 
 
   localStorage.setItem("myQuestions", JSON.stringify(myquestions));
@@ -253,60 +264,82 @@ function myquestions() {
 
 function goToQuiz() {
 
+
   let divAnswers = document.getElementById("answers");
-
-
-
+  divAnswers.style.display = "block";
+  divAnswers.innerHTML = "";
   let getQuestions = JSON.parse(localStorage.getItem("myQuestions"));
+  console.log("hola" , getQuestions);
 
-  if (currentQuestionIndex < getQuestions.length) {
-    let question = getQuestions[currentQuestionIndex].question;
-    let correctAnsw = getQuestions[currentQuestionIndex].correct_answer;
-    let incorrectAnsw = getQuestions[currentQuestionIndex].incorrect_answer;
+      if(getQuestions.length > 0 && myQuestionsIndex < getQuestions.length) {
 
-    // mezcla las respuestas
-    let allAnswers = [correctAnsw, ...incorrectAnsw];
-    allAnswers = allAnswers.sort(() => Math.random() - 0.5);
+        let question = getQuestions[myQuestionsIndex];
 
-    // mostrar la pregunta
-    let questionP = document.createElement("p");
-    questionP.innerHTML = question;
-    divAnswers.appendChild(questionP);
-  
+        let questionP = document.createElement("p");
+        questionP.innerHTML = question.question;
+        divAnswers.appendChild(questionP);
 
-  allAnswers.forEach((answer) => {
-    let answerCard = document.createElement("div");
-    answerCard.classList.add("answer-card");
-    answerCard.textContent = answer;
+        let correctAnswer = question.correct_answer;
+        let incorrectAnswers = question.incorrect_answer;
 
-    // Cuando se elige una respuesta, se verifica si es correcta o incorrecta
-    answerCard.addEventListener("click", () => handleAnswer(answer, correctAnsw, answerCard));
+        let allAnswers = [correctAnswer, ...incorrectAnswers];
+        allAnswers = allAnswers.sort(() => Math.random() - 0.5);
 
-    divAnswers.appendChild(answerCard);
-  });
+        allAnswers.forEach((answer) => {
+          let answerCard = document.createElement("div");
+          answerCard.classList.add("answer-card");
+          answerCard.textContent = answer;
 
+          answerCard.addEventListener("click", () => {
+            handleMyAnswers(answer, correctAnswer, answerCard);
+          });
 
-  // Subtítulo
-  let subtitle = document.createElement("h2");
-  let textsubtitle = document.createTextNode("Elige una respuesta para pasar a la siguiente pregunta.");
-  subtitle.appendChild(textsubtitle);
-  divAnswers.appendChild(subtitle)
+          divAnswers.appendChild(answerCard);
+        });
 
-  currentQuestionIndex++;
+        let subtitle = document.createElement("h2");
+        let textsubtitle = document.createTextNode("Elige una respuesta para pasar a la siguiente pregunta.");
+        subtitle.appendChild(textsubtitle);
+        divAnswers.appendChild(subtitle)
 
-}else {
+        //myQuestionsIndex++;
+       
+      }
+      else {
+        alert(`Has completado el quiz! Respuestas correctas: ${correctCount}, Respuestas incorrectas: ${incorrectCount}`);
+        // Guardar los resultados de la partida
+        saveGameResult(correctCount, incorrectCount);
+        myQuestionsIndex = 0;
+        correctCount = 0; 
+        incorrectCount = 0;
 
-  alert(`Has completado el quiz! Respuestas correctas: ${correctCount}, Respuestas incorrectas: ${incorrectCount}`);
+      }
 
-  // Guardar los resultados de la partida
-  saveGameResult(correctCount, incorrectCount);
+}   
 
-  currentQuestionIndex = 0;
-  correctCount = 0;
-  incorrectCount = 0;
+function handleMyAnswers (selectedAnswer, correctAnswer, answerCard) {
 
-}
+  if (selectedAnswer === correctAnswer) {
+    correctCount++;
+    answerCard.classList.add("correct");  
+    setTimeout(() => {
+      // alert("¡Correcto!");
+      goToQuiz();
+    },300);
+    
+  } else {
+    incorrectCount++;
+    answerCard.classList.add("incorrect");
+    setTimeout(() => {
+      // alert("Incorrecto.");
+      goToQuiz();
+    },300);
+    
+  }
+   
+    myQuestionsIndex++;
     
 
+  }
 
-}
+
