@@ -7,11 +7,11 @@ function startQuiz() {
 function homeVisual() {
 
     let title = document.createElement("h1");
-    let text = document.createTextNode("Bienvenido al Quiz de Programación");
+    let text = document.createTextNode("Bienvenido al Quiz ");
     title.appendChild(text);
 
     let subtitle = document.createElement("h2");
-    let textsubtitle = document.createTextNode("Descubre qué tanto sabes sobre programación y desafíate a ti mismo.");
+    let textsubtitle = document.createTextNode("Descubre qué tanto sabes y desafíate a ti mismo.");
     subtitle.appendChild(textsubtitle);
 
 
@@ -75,7 +75,7 @@ function makeCanvas(divCanvasContainer) {
                 label: "Incorrectas",
                 data: incorrectData,
                 borderColor: "rgba(255, 99, 132, 1)",
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                backgroundColor: "rgba(220, 20, 60, 0.5)",
                    borderWidth: 1
                 }]
         

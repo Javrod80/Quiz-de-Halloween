@@ -1,12 +1,13 @@
 /* Estilos para la página home.html*/
 body {
-    font-family: Arial, sans-serif;
+    font-family: mifuente, sans-serif;
     display: flex;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #bacdd9;
-    flex-direction: column;
+    background-image: url("../Recursos/kikphotorealistic.png");
+    background-size: cover;
+    background-repeat:no-repeat ;
 }
 
 h1 {
@@ -19,7 +20,7 @@ h1 {
 h2 {
     text-align: center;
     margin-top: 40px;
-    color: rgb(6, 108, 37);
+    color: rgb(230, 204, 220);
 
 
 }
@@ -42,6 +43,7 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    font-family: miFuente;
 
 }
 
@@ -55,7 +57,7 @@ h2 {
     align-items: center;
     padding: 20px;
     margin-top: 20px;
-    background-color: #f0f4f8;
+    background-color: #f89b9b;
 
     border-radius: 10px;
 
@@ -67,17 +69,7 @@ h2 {
 
 }
 
-#myQuestions-quiz {
-    margin-left: auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #FFA726;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    
-    
-
+@font-face {
+    font-family: "miFuente";
+    src: url("../Recursos/Nosifer-Regular.ttf");
 }

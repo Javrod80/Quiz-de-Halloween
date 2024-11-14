@@ -10,12 +10,6 @@ let myQuestionsIndex = 0;
 
 
 
-function aswerContainer() {
-
-}
-
-
-
 async function questions() {
   currentQuestionIndex = 0;
   let res = await fetch("https://opentdb.com/api.php?amount=10&type=multiple");
@@ -37,7 +31,7 @@ function makeVisual() {
   divAnswers.id = "answers";
   divAnswers.style.display = "none";
 
-  // Botón para mostrar las preguntas
+  // Button para mostrar las preguntas
   let showQuestionButton = document.createElement("button");
   showQuestionButton.textContent = "Begin Api Quiz";
   showQuestionButton.addEventListener("click", () => {
@@ -49,7 +43,7 @@ function makeVisual() {
   let divMyQuestions = document.createElement("div");
   divMyQuestions.id = "my-questions";
 
-
+  // Button para mis propias preguntas
   let startMyQuestions = document.createElement("button");
   startMyQuestions.textContent = " Mi Quiz";
   startMyQuestions.addEventListener("click",() => {
@@ -68,24 +62,19 @@ function makeVisual() {
   divGeneralContainer.appendChild(divMyQuestions)
   divGeneralContainer.appendChild(divAnswers);
 
-
-
-
-
   document.body.appendChild(divGeneralContainer);
 
   myquestions();
 }
 makeVisual();
 
+// función para las preguntas api
 function showQuestion() {
 
   let divAnswers = document.getElementById("answers");
   divAnswers.style.display = "block";
 
-
-
-  // Verificar si se han mostrado todas las preguntas
+ // Verificar si se han mostrado todas las preguntas
   if (currentQuestionIndex < response.length) {
     divAnswers.innerHTML = "";
 
@@ -117,7 +106,7 @@ function showQuestion() {
       divAnswers.appendChild(answerCard);
     });
 
-    // Subtítulo
+    // Mensaje en el div, despúes de las respuetas
     let subtitle = document.createElement("h2");
     let textsubtitle = document.createTextNode("Elige una respuesta para pasar a la siguiente pregunta.");
     subtitle.appendChild(textsubtitle);
@@ -185,65 +174,65 @@ function saveGameResult(correctCount, incorrectCount) {
 
 
 // Utilizar mis propias preguntas para el quiz
-
+// Creo un array de preguntas
 function myquestions() {
 
   let myquestions = [
     {
-      "question": "¿Quién pintó Las meninas?",
+      "question": "1.¿Quién pintó Las meninas?",
       "correct_answer": "Diego Velázquez",
-      "incorrect_answer": ["Francisco de Goya", "Salvador Dalí"]
+      "incorrect_answer": ["Francisco de Goya", "Salvador Dalí", "Pablo Picasso"]
     },
     {
-      "question": "¿Cuál es la capital de Hungría?",
+      "question": "2.¿Cuál es la capital de Hungría?",
       "correct_answer": "Budapest",
       "incorrect_answer": ["Praga", "Viena", "Estambul"]
 
 
     },
     {
-      "question": "Aproximadamente, ¿cuántos huesos tiene el cuerpo humano?",
+      "question": "3.Aproximadamente, ¿cuántos huesos tiene el cuerpo humano?",
       "correct_answer": "206 ",
-      "incorrect_answer": ["40", "208"]
+      "incorrect_answer": ["40", "208","405"]
     },
     {
-      "question": "¿El río más largo de España?",
+      "question": "4.¿El río más largo de España?",
       "correct_answer": "El río Tajo",
       "incorrect_answer": ["Río Guadiana", "Río Duero", "Río Guadalquivir"]
 
 
     },
     {
-      "question": "¿Cuál es el océano más grande?",
+      "question": "5.¿Cuál es el océano más grande?",
       "correct_answer": "Océano Pacífico ",
       "incorrect_answer": ["Océano Atlántico", "Océano Índico", "Océano Antártico", "Océno Ártico"]
     },
     {
-      "question": "¿De dónde son originarios juegos olímpicos?",
+      "question": "6.¿De dónde son originarios juegos olímpicos?",
       "correct_answer": "Grecia",
       "incorrect_answer": ["Roma", "Creta", "Londres"]
 
 
     },
     {
-      "question": "¿Cuál fue la primera película de Walt Disney?",
+      "question": "7.¿Cuál fue la primera película de Walt Disney?",
       "correct_answer": "Blancanieves y los siete enanitos ",
-      "incorrect_answer": ["Mickey Mouse", "La sirenita"]
+      "incorrect_answer": ["Mickey Mouse", "La sirenita", "La cenicienta"]
     },
     {
-      "question": ". ¿Cuántos satélites tenemos orbitando alrededor de la tierra?",
-      "correct_answer": "4.256 satélites",
-      "incorrect_answer": ["1419 satélites", "150 satélites", "8500 satélites"]
+      "question": "8.¿Cuántos satélites tenemos orbitando alrededor de la tierra?",
+      "correct_answer": "7.000 satélites",
+      "incorrect_answer": ["1.419 satélites", "150 satélites", "8.500 satélites"]
 
 
     },
     {
-      "question": "¿Cuántas veces parpadea por semana una persona?",
+      "question": "9.¿Cuántas veces parpadea por semana una persona?",
       "correct_answer": "25.000 veces",
-      "incorrect_answer": ["1.500 veces", "55.000 veces"]
+      "incorrect_answer": ["1.500 veces", "55.000 veces", "7.200"]
     },
     {
-      "question": " ¿Ciudad más poblada mundo?",
+      "question": "10.¿Ciudad más poblada mundo?",
       "correct_answer": "Tokio",
       "incorrect_answer": ["Praga", "Buenos Aires", "Estambul"]
 
@@ -261,13 +250,14 @@ function myquestions() {
 }
 
 
-
+// Función para mis propias preguntas
 function goToQuiz() {
-
 
   let divAnswers = document.getElementById("answers");
   divAnswers.style.display = "block";
   divAnswers.innerHTML = "";
+
+  // Recupero las preguntas. Función similar a la de las preguntas Api.
   let getQuestions = JSON.parse(localStorage.getItem("myQuestions"));
   console.log("hola" , getQuestions);
 
@@ -317,6 +307,7 @@ function goToQuiz() {
 
 }   
 
+// Función para manejar mis preguntas
 function handleMyAnswers (selectedAnswer, correctAnswer, answerCard) {
 
   if (selectedAnswer === correctAnswer) {

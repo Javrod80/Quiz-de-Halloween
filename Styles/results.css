@@ -1,12 +1,14 @@
 /* Estilos pagina results.html*/
 body {
-    font-family: Arial, sans-serif;
+    font-family: miFuente, sans-serif;
     display: flex;
     justify-content: center;
-    height: 80vh;
+    height: 100vh;
     margin: 0;
-    background-color: #bacdd9;
-    flex-direction: column;
+    background-image: url("../Recursos/kikphotorealistic.png");
+    background-size: cover;
+    background-repeat:no-repeat ;
+  
     align-items: center;
 }
 
@@ -29,11 +31,11 @@ button {
     width: 100%;
     max-width: 200px;
     text-align: center;
-
+    font-family: mifuente;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
 /* Estilo para el parrafo */
@@ -43,8 +45,8 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: auto;
-    min-width: 400px;
-    max-width: 90%;
+    min-width: 500px;
+    max-width: 100%;
     text-align: center;
     color: #000000;
     font-size: 20px;
@@ -65,4 +67,8 @@ p {
     font-size: 40px;
 
     font-weight: bold;
+}
+@font-face {
+    font-family: "miFuente";
+    src: url("../Recursos/Nosifer-Regular.ttf");
 }

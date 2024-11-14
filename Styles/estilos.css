@@ -1,12 +1,14 @@
 /* Estilos página scripts.html */
 body {
-    font-family: Arial, sans-serif;
+    font-family: miFuente, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../Recursos/kikphotorealistic.png");
+    background-size: cover;
+    background-repeat:no-repeat ;
     height: 100vh;
     margin: 0;
-    background-color: #bacdd9;
 }
 
 h1 {
@@ -26,18 +28,18 @@ h2 {
 
 /* Estilo para el contenedor de las tarjetas */
 #answers {
-    background-color: rgb(18, 161, 238);
+    background-color: #808080;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: auto;
     min-width: 300px;
-    max-width: 90%;
+    max-width: 85%;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center
+    align-items: center;
+   
 }
 
 /* Estilo para las preguntas */
@@ -47,6 +49,8 @@ h2 {
     font-weight: bold;
     word-wrap: break-word;
     text-align: center;
+    align-items: center;
+    color: #b30000;
 }
 
 /* Estilos para las tarjetas de respuestas */
@@ -56,13 +60,14 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    margin: 10px 0;
+    margin: auto ;
     width: 80%;
     /* Ajusta el tamaño de las tarjetas */
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
     font-size: 16px;
+    margin-bottom: 15px;
 }
 .answer-card:hover {
     transform: scale(1.05);
@@ -92,9 +97,14 @@ button {
     width: 100%;
     max-width: 200px;
     text-align: center;
+    font-family: mifuente;
 
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
+}
+@font-face {
+    font-family: "miFuente";
+    src: url("../Recursos/Nosifer-Regular.ttf");
 }
