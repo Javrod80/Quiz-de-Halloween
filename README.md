@@ -40,9 +40,8 @@ Abre el archivo home.html en un navegador.
 ¡Empieza a jugar y pon a prueba tu conocimiento!
 
 🕸️ Recursos utilizados
-Chart.js
-
-Google Fonts
+  Chart.js
+  Google Fonts
 
 
 ![image](https://github.com/user-attachments/assets/e4b1b1b5-2a44-4712-b1f7-0ea381761b65)
