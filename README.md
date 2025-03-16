@@ -32,8 +32,10 @@ Google Fonts para mejorar la apariencia
 │── README.md
 ````
 🔧 Instalación y ejecución
+
 Clona este repositorio:
 git clone https://github.com/tu-usuario/HalloweenQuiz.git
+
 Abre el archivo home.html en un navegador.
 ¡Empieza a jugar y pon a prueba tu conocimiento!
 
