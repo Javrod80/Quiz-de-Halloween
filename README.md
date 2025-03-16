@@ -41,6 +41,7 @@ Abre el archivo home.html en un navegador.
 
 🕸️ Recursos utilizados
 Chart.js
+
 Google Fonts
 
 
